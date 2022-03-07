@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Acceuil {% endblock %}
+
+{% form_theme formulaire 'bootstrap_5_layout.html.twig' %}
+
+{% block body %}
+
+<h1>Insérer votre film !</h1>
+
+
+    {{ form_start(formulaire) }}
+
+        {{form_row(formulaire.nom, {'attr':{
+                                                'placeholder':'Ex: Mon film',
+                                                'max-lengh':'50',
+                                                'pattern':'.{1,}'     
+                                      }})}}
+                                      <br>
+        {{form_row(formulaire.resume, {'attr':{'placeholder':'Ex: Film d\'horreur a couper le souffle'}})}}
+        {{form_row(formulaire.realisateur, {'attr':{'placeholder':'Ex: Spike Lee'}} )}}
+
+
+        <button type="submit" class="btn btn-success">Poster</button>
+
+    {{ form_end(formulaire) }}
+<br>
+    <a href="{{ path('films') }}" class="btn btn-success">Retour</a>
+
+{% endblock %}

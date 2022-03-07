@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FilmsController!{% endblock %}
+
+{% block body %}
+
+        {% for film in films %}
+        <hr>
+            <p>{{ film.nom }}</p>
+            <p>{{ film.resume }}</p>
+            <p>{{ film.realisateur }}</p>
+            <a href="{{ path ('show_film', {id:film.id}) }}" class="btn btn-primary">A propos</a>
+        </hr>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+
+    <h1>Se connecter</h1>
+
+    <form action=" {{ path ('signin') }} " method="post">
+       
+        <div class="form-group">
+            <label for="username" class="form-label mt-4">Pseudo</label>
+            <input type="text" class="form-control" id="" name="_username" placeholder="Entrer votre pseudo">
+        </div>
+    
+        <div class="form-group">
+            <label for="password" class="form-label mt-4">Mot de passe</label>
+            <input type="password" class="form-control" id="" name="_password" placeholder="Entrez votre mot de passe">
+        </div>
+
+
+        <div class="form-group mt-4">
+            <button type="submit" class="btn btn-success">Connexion</button>
+        </div>
+
+    </form>
+        
+  
+
+{% endblock %}

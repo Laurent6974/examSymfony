@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Votre chaussure {% endblock %}
+
+{% block body %}
+
+<div>
+    <h1>{{ film.nom }}</h1>
+    <hr>
+    <h1>{{ film.resume }}</h1>
+    
+    <hr>
+    <h1>Commentaires :<h1>
+
+    {{ form_start(form, {'action':path ("impression_new", {id:film.id} )}) }}
+    {{ form_widget(form.content, {'attr':{'placeholder':'Entrez votre impression'}}) }}
+
+    <button type='submit' class='btn btn-success'>Envoyer</button>
+
+    {{ form_end(form) }}
+    <hr>
+</div>
+
+<div>
+
+    {% for impression in film.impressions %}
+        <p><strong>{{ impression.content }}</strong><p>
+        <a href='{{ path('impression_suppr', {id:impression.id}) }}' class="btn btn-danger"><strong>X</strong></a>
+        <a href='{{ path('impression_change', {id:impression.id}) }}' class="btn btn-warning"><strong>Modifier</strong></a>
+        <br>
+    {% endfor %}
+    
+    <div>
+    <a href = "{{ path ('films') }}" class="btn btn-primary"> Retour </a>
+    </div>
+</div>
+
+
+{% endblock %}
